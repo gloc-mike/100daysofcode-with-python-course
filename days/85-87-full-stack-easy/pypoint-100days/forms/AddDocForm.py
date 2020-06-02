@@ -30,15 +30,16 @@ class AddDocForm (AddDocFormTemplate):
   def validate(self):
     self.label_errors.text = ""
     errors = []
-    if not self.text_box_doc_name.text or not self.text_box_doc_name.text.strip():
+    if not (self.text_box_doc_name.text and self.text_box_doc_name.text.strip()):
       errors.append('Document name is required')
-    
+
     if not self.drop_down_categories.selected_value:
       errors.append('Document category is required')
-    
-    if not self.text_area_contents.text or not self.text_area_contents.text.strip():
+
+    if not (self.text_area_contents.text
+            and self.text_area_contents.text.strip()):
       errors.append('Cannot create empty documents')
-      
+
     return errors
 
 

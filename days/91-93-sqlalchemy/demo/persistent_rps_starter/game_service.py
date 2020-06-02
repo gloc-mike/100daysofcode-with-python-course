@@ -49,6 +49,5 @@ def find_roll(name: str) -> Optional['Roll']:
 
 
 def create_roll(name: str) -> 'Roll':
-    roll = Roll(name)
     # TODO: Save
-    return roll
+    return Roll(name)

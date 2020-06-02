@@ -18,7 +18,7 @@ def find_movie_by_title(keyword: str) -> List[Movie]:
 
     api_log.trace('Starting search for {}'.format(keyword))
 
-    if not keyword or not keyword.strip():
+    if not (keyword and keyword.strip()):
         api_log.warn("No keyword supplied")
         raise ValueError('Must specify a search term.')
 

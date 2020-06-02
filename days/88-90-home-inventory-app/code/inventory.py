@@ -28,12 +28,14 @@ def access_db():
 
 #A somewhat dirty menu. Improvement Point (make it a dict perhaps)
 def main_menu():
-    menu = {}
-    menu['1'] = "Add Room."
-    menu['2'] = "Add Inventory."
-    menu['3'] = "View Inventory List."
-    menu['4'] = "Total Value."
-    menu['5'] = "Exit."
+    menu = {
+        '1': 'Add Room.',
+        '2': 'Add Inventory.',
+        '3': 'View Inventory List.',
+        '4': 'Total Value.',
+        '5': 'Exit.',
+    }
+
     while True:
         print("\n")
         for item, desc in sorted(menu.items()):
@@ -108,10 +110,10 @@ def add_inventory(selection):
 
 #Returns a list of all items in a room and their total value.
 def view_inventory(selection):
-    total = 0
     with access_db() as cursor:
         cursor.execute("SELECT * FROM '" + selection + "'")
         print("\n")
+        total = 0
         for data in cursor:
             print("%s: $%d" % (data[0], data[1]))
             total += data[1]

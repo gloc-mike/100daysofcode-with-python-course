@@ -9,7 +9,7 @@ Movie = collections.namedtuple('Movie', 'imdb_code, title, director, keywords, '
 
 
 def find_movie_by_title(keyword: str) -> List[Movie]:
-    if not keyword or not keyword.strip():
+    if not (keyword and keyword.strip()):
         raise ValueError('Must specify a search term.')
 
     url = f'http://movie_service.talkpython.fm/api/search/{keyword}'

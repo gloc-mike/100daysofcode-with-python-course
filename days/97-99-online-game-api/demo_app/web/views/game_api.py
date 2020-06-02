@@ -17,9 +17,11 @@ def build_views(app):
     @app.route('/api/game/users', methods=['PUT'])
     def create_user():
         try:
-            if not flask.request.json \
-                    or 'user' not in flask.request.json \
-                    or not flask.request.json.get('user'):
+            if not (
+                flask.request.json
+                and 'user' in flask.request.json
+                and flask.request.json.get('user')
+            ):
                 raise Exception("Invalid request: no value for user.")
 
             username = flask.request.json.get('user').strip()

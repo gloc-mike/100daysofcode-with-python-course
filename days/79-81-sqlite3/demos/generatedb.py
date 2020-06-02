@@ -14,8 +14,7 @@ def create_db(name):
 
 
 def prompt_for_name():
-    name = input("What would you like to name your test db file?: ")
-    return name
+    return input("What would you like to name your test db file?: ")
 
 if __name__ == "__main__":
     name = prompt_for_name()

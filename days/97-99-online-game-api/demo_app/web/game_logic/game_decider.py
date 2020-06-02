@@ -64,11 +64,7 @@ def __build_roll(row: dict):
     del row['Attacker']
     del row[name]
 
-    __winner_lookup[name] = set()
-    for k in row.keys():
-        can_defeat = row[k].strip().lower() == 'win'
-        if can_defeat:
-            __winner_lookup[name].add(k)
+    __winner_lookup[name] = {k for k, can_defeat in row.items() if can_defeat}
 
 
 def all_roll_names():

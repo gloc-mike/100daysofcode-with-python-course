@@ -29,7 +29,7 @@ def get_game_history(game_id: str) -> List[Move]:
 
 def is_game_over(game_id: str) -> bool:
     history = get_game_history(game_id)
-    return any([h.is_winning_play for h in history])
+    return any(h.is_winning_play for h in history)
 
 
 def get_win_count(player: Player) -> int:

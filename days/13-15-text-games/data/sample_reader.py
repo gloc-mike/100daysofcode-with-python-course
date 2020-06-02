@@ -13,7 +13,7 @@ def read_roll(row: dict):
     del row[name]
 
     print("Roll: {}".format(name))
-    for k in row.keys():
+    for k in row:
         can_defeat = row[k].strip().lower() == 'win'
         print(" * {} will default {}? {}".format(name, k, can_defeat))
 

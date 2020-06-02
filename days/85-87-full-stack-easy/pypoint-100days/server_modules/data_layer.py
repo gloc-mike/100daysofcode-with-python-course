@@ -5,8 +5,8 @@ import datetime
 
 @anvil.server.callable
 def all_docs():
-  results = list(app_tables.documents.search(tables.order_by("created", ascending=False)))
-  return results
+  return list(
+      app_tables.documents.search(tables.order_by("created", ascending=False)))
 
 
 @anvil.server.callable
